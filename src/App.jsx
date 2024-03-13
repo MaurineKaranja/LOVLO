@@ -14,10 +14,6 @@ function App() {
       <div className="content">
         <h1 className='name'>LOVLO</h1>
         <p className='intro'>An indulgent and soothing experience for healthy and beautiful nails, hands and feet.</p>
-        <div className="buttons">
-          <button>Login</button>
-          <Link to='/register'>Register</Link>
-        </div>
         <SignInWithGoogle />
       </div>
     </div>

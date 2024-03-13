@@ -6,6 +6,7 @@ import SignInGoogle from './pages/signInGoogle'
 import Register from './pages/register'
 import Login from './pages/login'
 import ServiceSelectionPage from './pages/serviceSelectionPage'
+import AppointmentBookingPage from './pages/appointmentBookingPage'
 
 import './index.css'
 
@@ -33,6 +34,10 @@ const paths = createBrowserRouter([
     path: "/serviceSelectionPage",
     element: <ServiceSelectionPage/>,
   },
+  {
+    path: "/appointmentBookingPage",
+    element: <AppointmentBookingPage/>,
+  }
 
 ]);
 

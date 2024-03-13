@@ -5,7 +5,7 @@ function SignInWithGoogle() {
     try {
       const { user, session, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: 'https://localhost:5173', // replace with your own redirect URL
+        options: { redirectTo: 'http://localhost:5173/serviceSelectionPage', // replace with your own redirect URL
         },
       });
 

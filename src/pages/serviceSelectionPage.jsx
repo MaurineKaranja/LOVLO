@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../components/supabaseClient'; // import your Supabase client
+import { Link } from "react-router-dom";
+import Modal from './appointmentBookingPage'
 import pic1 from '../assets/pic1.jpg';
 import pic2 from '../assets/pic2.jpg';
 import pic7 from '..//assets/pic7.jpg';
@@ -12,6 +14,8 @@ function ServiceSelectionPage() {
   const [services, setServices] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   useEffect(() => {
     async function fetchServices() {
@@ -47,10 +51,14 @@ function ServiceSelectionPage() {
   const handleSelectService = (service) => {
     if (selectedService && selectedService.id === service.id) {
       setSelectedService(null);
+      
     } else {
     setSelectedService(service);
+    
     }
   };
+
+  
 
   return (
     <div>
@@ -106,12 +114,15 @@ function ServiceSelectionPage() {
               <div>
                 <p>Description: {service.description}</p>
                 <p>Price: ${service.price}</p>
+                 {/* Add select button to trigger appointment modal */}
+                <Link to='/appointmentBookingPage'>Select</Link>
                 {/* Add logic to display other images of the selected service */}
               </div>
             )}
           </div>
         ))}
       </div>
+      
     </div>
   );
 }

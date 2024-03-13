@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(104, 2, 95);
+}
+
+.images {
+  width: 50%;
+}
+
+.images img {
+  width: 650px;
+  height: 550px;
+}
+
+.content {
+  width: 50%;
+  padding: 0 20px;
+  color: aliceblue;
+}
+
+.buttons button {
+  background-color: aquamarine;
+  margin-right: 10px;
+  width: 150px;
+  height: 30px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.google-button{
+  width: 250px;
+  height: 40px;
+  margin: 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.name{
+  font-size: 6rem;
+  color: white;
+}
+.intro{
+  font-size: 2rem;
+}

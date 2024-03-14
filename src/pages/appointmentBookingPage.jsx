@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { supabase } from '../components/supabaseClient';
 import './appointmentBookingPage.css'
 import icon2 from '../assets/pic6.jpg'
 import SignOutButton from './signOutButton';
@@ -20,20 +21,37 @@ function AppointmentBookingPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can perform validation and submit the form data
-    // For now, we'll just log the form data
-    console.log(formData);
-    // After successfully booking, you can show a confirmation message
-    alert('Appointment confirmed successfully.');
-    // You can optionally clear the form data after submission
-    setFormData({
-      name: '',
-      phoneNumber: '',
-      date: '',
-      time: '',
-    });
+    try {
+      const { data, error } = await supabase.from('appointments').insert([
+        {
+          name: formData.name,
+          phoneNumber: formData.phoneNumber,
+          date: formData.date,
+          time: formData.time,
+        },
+      ]);
+      
+      if (error) {
+        throw error;
+      }
+  
+      
+      setFormData({
+        name: '',
+        phoneNumber: '',
+        date: '',
+        time: '',
+      });
+  
+     
+      alert('Appointment confirmed successfully.');
+  
+    } catch (error) {
+      console.error('Error booking appointment:', error.message);
+      
+    }
   };
 
   return (
